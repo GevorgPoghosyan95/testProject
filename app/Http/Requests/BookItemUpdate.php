@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 
-class BookItemRequest extends FormRequest
+class BookItemUpdate extends FormRequest
 {
 
     use ErrorJsonTrait;
@@ -27,11 +26,11 @@ class BookItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name'=>'required|string|min:2',
+            'first_name'=>'string|min:2',
             'last_name'=>'string|min:2',
-            'phone'=>'required|regex:/^[+][0-9]/|min:10',
-            'country_code'=>'required|string',
-            'timezone_name'=>'required|string'
+            'phone'=>'regex:/^[+][0-9]/|min:10',
+            'country_code'=>'string',
+            'timezone_name'=>'string'
         ];
     }
 

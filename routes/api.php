@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->resource('bookitems','BookItemController');
+Route::middleware('auth:api')->post('find','BookItemController@find');
