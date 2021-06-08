@@ -35,7 +35,7 @@ class BookItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -69,7 +69,7 @@ class BookItemController extends Controller
      */
     public function update(Request $request, BookItem $bookItem)
     {
-        //
+        dd('ok');
     }
 
     /**

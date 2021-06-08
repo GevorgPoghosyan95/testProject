@@ -15,6 +15,12 @@ class CreateBookItemsTable extends Migration
     {
         Schema::create('book_items', function (Blueprint $table) {
             $table->id();
+            $table->string('first_name');
+            $table->string('last_name')->nullable();
+            $table->string('phone');
+            $table->string('country_code')->nullable();
+            $table->string('timezone_name')->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
