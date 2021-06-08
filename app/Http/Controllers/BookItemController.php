@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 class BookItemController extends Controller
 {
+
     protected $bookItemService;
     public function __construct(BookItemService $bookItemService)
     {
@@ -18,7 +19,7 @@ class BookItemController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the book item.
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,7 +30,7 @@ class BookItemController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created book item in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -54,7 +55,7 @@ class BookItemController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the book item.
      *
      * @param  \App\BookItem  $bookItem
      * @return \Illuminate\Http\Response
@@ -66,18 +67,7 @@ class BookItemController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\BookItem  $bookItem
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BookItem $bookItem)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Update the book item in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\BookItem  $bookItem
@@ -90,7 +80,7 @@ class BookItemController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the book item from storage.
      *
      * @param  \App\BookItem  $bookItem
      * @return \Illuminate\Http\Response
@@ -101,6 +91,11 @@ class BookItemController extends Controller
         return response()->json(['status'=>'ok','message'=>'Book item deleted successfully!']);
     }
 
+    /**
+     * @param SearchRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     * find book item by first name
+     */
     public function find(SearchRequest $request){
         $bookItems = BookItem::where('first_name','like','%'.$request->get('first_name').'%')->get();
         return response()->json($bookItems);
