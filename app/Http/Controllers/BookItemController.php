@@ -24,7 +24,7 @@ class BookItemController extends Controller
      */
     public function index()
     {
-        return response()->json(BookItem::all());
+        return response()->json(BookItem::paginate(5));
     }
 
 
